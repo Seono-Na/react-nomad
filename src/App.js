@@ -16,9 +16,12 @@ function App() {
     <div>
       <h1>The Coins {loading ? "" : `(${coins.length})`}</h1>
       {loading ? <strong>Loading...</strong> : <select>
-        {coins.map((coin) => <option>{coin.name}({coin.symbol}): ${coin.quotes.USD.price} USD</option>)}
+        {coins.map((coin) =>
+          <option key={coin.id}>
+            {coin.name}({coin.symbol}): ${coin.quotes.USD.price} USD
+          </option>
+        )}
       </select>}
-
     </div>
   );
 }
