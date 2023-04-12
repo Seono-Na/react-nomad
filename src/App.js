@@ -1,9 +1,10 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [toDo, setToDo] = useState("");
   const [toDos, setToDos] = useState([]);
+  console.log(toDos)
   const onChange = (event) => setToDo(event.target.value);
   const onSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +22,10 @@ function App() {
         <input value={toDo} onChange={onChange} type="text" placeholder="Write your to do!"></input>
         <button>Add To Do</button>
       </form>
+      <hr />
+      <ul>
+        {toDos.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>
     </div>
   );
 }
